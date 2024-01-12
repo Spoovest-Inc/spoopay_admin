@@ -19,11 +19,11 @@ axiosApi.interceptors.request.use((req) => {
 });
 
 
-const UserDetails = ({ show, onCloseClick, userDetail, walletBalance, usdtBalance, refBonus }) => {
+const UserDetails = ({ show, onCloseClick, userDetail, userWallets, refBonus }) => {
   return (
     <Modal isOpen={show} toggle={onCloseClick} centered={true}>
     <ModalHeader toggle={onCloseClick} tag="h4" style={{ paddingLeft: "40px"}} >
-       {userDetail.name}s Details
+       {userDetail.first_name}s Details
     </ModalHeader>
       <ModalBody className="py-3 px-5">
            <div className="avatar-xl" style={{ margin: "auto"}}>
@@ -33,7 +33,7 @@ const UserDetails = ({ show, onCloseClick, userDetail, walletBalance, usdtBalanc
             </div>
             <div style={{ border: "2px solid #E5E5E5", borderRadius: "8px"}} className='p-3 mt-3'>
               <span>Fullname</span>
-              <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>{userDetail?.name}</span> <hr />
+              <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>{userDetail?.first_name + " " + userDetail?.last_name}</span> <hr />
 
               <span>Mobile</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>{userDetail?.phone_number}</span> <hr />
@@ -52,27 +52,32 @@ const UserDetails = ({ show, onCloseClick, userDetail, walletBalance, usdtBalanc
 
             
 
-              <span>Wallet Balance</span>
-              <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
-              <NumberFormat
-                value={walletBalance}
-                className="foo"
-                displayType={'text'}
-                thousandSeparator={true}
-                renderText={(value, props) => <div {...props}>&#8358;{value}</div>}
-                /> 
-              </span> <hr />
+             
+                <h4>User Wallets</h4>
+               {userWallets?.map((wallet) => (
+                <>
+                        <div style={{ border: "2px solid #E5E5E5", borderRadius: "8px"}} className='p-3 mt-3'>
+                        <span>Wallet Type</span>
+                        <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>{wallet.wallet_type}</span> <br />
+                        <span>Wallet Balance</span>
+                        <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
+                        <NumberFormat
+                          value={wallet.balance}
+                          className="foo"
+                          displayType={'text'}
+                          thousandSeparator={true}
+                          renderText={(value, props) => <div {...props}>&#8358;{value}</div>}
+                          /> 
+                        </span>  <br/>
 
-              <span>USDT Balance</span>
-              <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
-              <NumberFormat
-                value={usdtBalance}
-                className="foo"
-                displayType={'text'}
-                thousandSeparator={true}
-                renderText={(value, props) => <div {...props}>{value}usdt</div>}
-                /> 
-              </span> <hr />
+                        <span>Wallet Currency</span>
+                        <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>{wallet.currency}</span> <br />
+
+
+
+                        </div>
+                </>
+               ))}
 
               <div style={{ border: "2px solid #E5E5E5", borderRadius: "8px"}} className='p-3 mt-3'>
               <span>Reffered Users</span>
@@ -107,7 +112,8 @@ UserDetails.propTypes = {
   walletBalance: PropTypes.any,
   usdtBalance: PropTypes.any,
   refBonus: PropTypes.any,
-  show: PropTypes.any
+  show: PropTypes.any,
+  userWallets: PropTypes.any
   
 }
 

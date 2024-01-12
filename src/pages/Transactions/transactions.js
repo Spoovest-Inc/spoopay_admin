@@ -289,7 +289,7 @@ const PendingTransactions = ()  => {
                  {transaction.amount}{transaction.currency} /   &#8358;{transaction.corresponding_ngn_amount}
                  </>
               )  :
-              transaction.type == "WITHDRAWAL" || transaction.type == "AIRTIME" || transaction.type == "DATA" || transaction.type == "SIGNUP_BONUS" || transaction.type == "FUNDING" || transaction.type == "CABLE" || transaction.type == "ELECTRICITY" ? (
+              transaction.type == "WITHDRAWAL" ||    transaction.type == "DAILY_EARNINGS" || transaction.type == "AIRTIME" || transaction.type == "DATA" || transaction.type == "SIGNUP_BONUS" || transaction.type == "FUNDING" || transaction.type == "CABLE" || transaction.type == "ELECTRICITY" ? (
                  <>
                          <NumberFormat
                       value={transaction.amount}
@@ -385,7 +385,7 @@ const PendingTransactions = ()  => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Transaction management | FlipEx Admin dashboard</title>
+          <title>Transaction management | Spoopay Admin dashboard</title>
         </MetaTags>
         <Container fluid>
       

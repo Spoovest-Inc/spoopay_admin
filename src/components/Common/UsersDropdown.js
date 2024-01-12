@@ -66,7 +66,8 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
         const [deleteModal, setDeleteModal] = useState(false);
         const [loading, setLoading] = useState(false);
         const [amount, setAmount] = useState("")
-        const [walletBalance, setWalletBalance] = useState(0)
+        const [walletType, setWalletType] = useState("")
+        const [userWallets, setUserWalets] = useState([])
         const [usdtBalance, setUsdtBalance] = useState(0)
         const [refBonus, setRefBonus] = useState(0)
         const [isWithdrawing, setIsWithdrawing] = useState("no")
@@ -262,8 +263,7 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
   const userDetails = (user) => {
     // get user details from the backend 
     axiosApi.get(`${API_URL}/api/v1/users/profile/${user.id}`).then((response) => {
-      setWalletBalance(response.data.data.Wallet.balance)
-      setUsdtBalance(response.data.data.Wallet.usdt_balance)
+      setUserWalets(response.data.data.Wallets)
       setRefBonus(response.data.data.Wallet.referral_bonus)
   }).catch((error) => {
     console.log(error.message)
@@ -308,7 +308,8 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
    const removeWallet = () => {
         const data = {
           id: id,
-          amount: amount
+          amount: amount,
+          wallet_type: walletType
       }
       setLoading(true);
       axiosApi.put(`${API_URL}/api/v1/users/remove-cash`, data).then((response) => {
@@ -352,7 +353,8 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
    const fundWallet = () => {
        const wallet_data = {
            id: id,
-           amount: amount
+           amount: amount,
+           wallet_type: walletType
        }
        setLoading(true);
        axiosApi.put(`${API_URL}/api/v1/users/fund-wallet`, wallet_data).then((response) => {
@@ -417,7 +419,7 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
    <UserDetailsModal
      show={userDetailModal}
      userDetail={userDetail}
-     walletBalance={walletBalance}
+     userWallets={userWallets}
      usdtBalance={usdtBalance}
      refBonus={refBonus}
      onCloseClick={() => setUserDetailModal(false)}
@@ -657,7 +659,19 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
                                 type="text"
                                 onChange={(e) => setAmount(e.target.value)}
                               />
-                              <span>Current balance: { walletBalance }</span>
+                              
+                            </div>
+
+                          </Col>
+
+                          <Col xs={12}>
+                            <div className="mb-3">
+                              <Label className="form-label">Wallet Type</Label>
+                              <select className='form-control' name='wallet_type' onChange={(e) => setWalletType(e.target.value)}>
+                                <option>Select Wallet Type</option>
+                                <option value="NAIRA">Naira Wallet</option>
+                              </select>
+                              
                             </div>
 
                           </Col>
@@ -722,7 +736,18 @@ const UsersDropdown = ({ user, loadUsers, menuType}) => {
                                 type="text"
                                 onChange={(e) => setAmount(e.target.value)}
                               />
-                              <span>Current balance: { walletBalance }</span>
+                           
+                            </div>
+                          </Col>
+
+                          <Col xs={12}>
+                            <div className="mb-3">
+                              <Label className="form-label">Wallet Type</Label>
+                              <select className='form-control' name='wallet_type' onChange={(e) => setWalletType(e.target.value)}>
+                                <option>Select Wallet Type</option>
+                                <option value="NAIRA">Naira Wallet</option>
+                              </select>
+                              
                             </div>
 
                           </Col>
