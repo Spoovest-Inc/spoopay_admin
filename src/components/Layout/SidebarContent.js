@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { useEffect, useRef,  useState } from "react";
-
+import Iconfiy from 'pages/Utility/Iconfiy'
 
 // //Import Scrollbar
 import SimpleBar from "simplebar-react";
@@ -163,7 +163,7 @@ const SidebarContent = props => {
 
             <li>
               <Link to="/users">
-                <img src={userIcon} alt="" width="20px" style={{ marginBottom: "2px" }}/>
+              <i className="bx bx-user-plus"></i>
                 <span style={{ paddingLeft: "5px"}}>{props.t("Users")}</span>
               </Link>
             </li>
@@ -182,7 +182,7 @@ const SidebarContent = props => {
 
             <li>
               <Link to="/transactions">
-              <img src={transIcon} alt="" width="20px" style={{ marginBottom: "2px" }}/>
+              <i className="bx bx-history"></i>
                 <span style={{ paddingLeft: "5px"}}>{props.t("Transactions")}</span>
               </Link>
             </li>
@@ -190,19 +190,20 @@ const SidebarContent = props => {
 
             <li>
               <Link to="/" className="has-arrow">
-              <i className="bx bx-gift"></i>
-                <span>{props.t("Savings")}</span>
+             
+              <Iconfiy icon="material-symbols:savings-outline"/>
+              <span style={{ paddingLeft: "15px"}}>{props.t("Savings")}</span>
               </Link>
               <ul className="sub-menu" aria-expanded="false">
                   <li>
-                  <Link to="/giftcards" className=" ">
-                    <span>{props.t("Giftcards")}</span>
+                  <Link to="/spoowealth" className=" ">
+                    <span>{props.t("Spoowealth")}</span>
                   </Link>
                 </li>
 
                 <li>
-                  <Link to="/subcategories" className=" ">
-                    <span>{props.t("Subcategories")}</span>
+                  <Link to="/spooflex" className=" ">
+                    <span>{props.t("Spooflex")}</span>
                   </Link>
                 </li>
               </ul>

@@ -24,6 +24,9 @@ import sellRequest from "../pages/GiftCards/sellRequest-list"
 import subCategories from "../pages/GiftCards/CardList/subcategories"
 
 
+import Spoowealth from "../pages/Savings/Spoowealth"
+
+
 // // Pages Component
 import Chat from "../pages/Chat/Chat"
 
@@ -146,8 +149,7 @@ import SpecialCodes from "../pages/More/special-code"
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: Dashboard },
-  { path: "/dashboard-saas", component: DashboardSaas },
-  { path: "/dashboard-crypto", component: DashboardCrypto },
+  
   { path: "/blogs", component: Blog },
   { path: "/send-mail", component: Email},
   { path: "/profile", component: UserProfile},
@@ -159,14 +161,7 @@ const authProtectedRoutes = [
   {path: "/admin", component: Admins},
   {path:"/admin-logs", component: LogsList},
 
-  //cards
-  {path: "/giftcards", component: GiftCards},
-  {path: "/giftcards/categories/:id", component: SingleCard},
-  {path: "/giftcards/sub-categories/:id", component: SingleCategory},
-  {path: "/giftcards", component: GiftCards},
-  {path: "/subcategories", component:subCategories},
-
-
+ 
   //Rates
   { path: "/currencies", component: Currencies },
    {path: "/rates", component: RateRange},
@@ -175,13 +170,8 @@ const authProtectedRoutes = [
    // Tasks
    { path: "/tasks-list", component: Tasks },
 
+   { path: "/spoowealth", component: Spoowealth },
 
-
-  { path: "/crypto-buy-sell", component: CryptoBuySell },
-  { path: "/crypto-exchange", component: CryptoExchange },
-  { path: "/crypto-lending", component: CryptoLending },
-  { path: "/crypto-orders", component: CryptoOrders },
-  { path: "/crypto-kyc-application", component: CryptoKYCApplication },
 
 
 
@@ -213,37 +203,8 @@ const authProtectedRoutes = [
     {path: "/user-wallet/:id", component: UserWallets},
     {path: "/leaderboard", component: LeaderBoard},
 
-  // Ui
-  { path: "/ui-alerts", component: UiAlert },
-  { path: "/ui-buttons", component: UiButtons },
-  { path: "/ui-cards", component: UiCards },
-  { path: "/ui-carousel", component: UiCarousel },
-  { path: "/ui-colors", component: UiColors },
-  { path: "/ui-dropdowns", component: UiDropdown },
-  { path: "/ui-general", component: UiGeneral },
-  { path: "/ui-grid", component: UiGrid },
-  { path: "/ui-images", component: UiImages },
-  { path: "/ui-lightbox", component: UiLightbox },
-  { path: "/ui-modals", component: UiModal },
-  { path: "/ui-progressbars", component: UiProgressbar },
-  { path: "/ui-sweet-alert", component: UiSweetAlert },
-  { path: "/ui-tabs-accordions", component: UiTabsAccordions },
-  { path: "/ui-typography", component: UiTypography },
-  { path: "/ui-video", component: UiVideo },
-  { path: "/ui-session-timeout", component: UiSessionTimeout },
-  { path: "/ui-rating", component: UiRating },
-  { path: "/ui-rangeslider", component: UiRangeSlider },
-  { path: "/ui-notifications", component: UiNotifications },
-  { path: "/ui-offcanvas", component: UiOffCanvas },
-  { path: "/ui-breadcrumb", component: UiBreadcrumb },
-  { path : "/ui-placeholders" , component : UiPlaceholders},
-  { path : "/ui-toasts" , component : UiToasts},
 
-  //Utility
-  { path: "/pages-starter", component: PagesStarter },
-  { path: "/pages-timeline", component: PagesTimeline },
-  { path: "/pages-faqs", component: PagesFaqs },
-  { path: "/pages-pricing", component: PagesPricing },
+
 
   { path: "/notifications", component: Notifications},
  
@@ -263,32 +224,8 @@ const publicRoutes = [
   { path: "/verify-token", component: VerifyToken},
   { path: "/open-batch", component: OpenBatch},
 
-
-  { path: "/pages-maintenance", component: PagesMaintenance },
-  { path: "/pages-comingsoon", component: PagesComingsoon },
-  { path: "/pages-404", component: Pages404 },
-  { path: "/pages-500", component: Pages500 },
-  { path: "/charts", component: Charts },
-  { path: "/crypto-ico-landing", component: CryptoIcoLanding },
   { path: "/affirmation", component: Affirmation},
   { path: "/change-password", component: ChangePassword},
-  // Authentication Inner
-  { path: "/pages-login", component: Login1 },
-  { path: "/pages-login-2", component: Login2 },
-  { path: "/pages-register", component: Register1 },
-  { path: "/pages-register-2", component: Register2 },
-  { path: "/page-recoverpw", component: Recoverpw },
-  { path: "/page-recoverpw-2", component: Recoverpw2 },
-  { path: "/pages-forgot-pwd", component: ForgetPwd1 },
-  { path: "/auth-recoverpw-2", component: ForgetPwd2 },
-  { path: "/auth-lock-screen", component: LockScreen },
-  { path: "/auth-lock-screen-2", component: LockScreen2 },
-  { path: "/page-confirm-mail", component: ConfirmMail },
-  { path: "/page-confirm-mail-2", component: ConfirmMail2 },
-  { path: "/auth-email-verification", component: EmailVerification },
-  { path: "/auth-email-verification-2", component: EmailVerification2 },
-  { path: "/auth-two-step-verification", component: TwostepVerification },
-  { path: "/auth-two-step-verification-2", component: TwostepVerification2 },
 ]
 
 export { authProtectedRoutes, publicRoutes }
