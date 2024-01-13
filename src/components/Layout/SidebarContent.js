@@ -201,11 +201,11 @@ const SidebarContent = props => {
                   </Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Link to="/spooflex" className=" ">
                     <span>{props.t("Spooflex")}</span>
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </li>
 
