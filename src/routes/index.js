@@ -146,6 +146,9 @@ import LogsList from "../pages/Logs/logs-list"
 import Notifications from "../pages/Logs/notifications"
 import ServiceProvider from "../pages/More/service-providers"
 import SpecialCodes from "../pages/More/special-code"
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: Dashboard },

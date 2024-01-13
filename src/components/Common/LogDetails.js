@@ -42,7 +42,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Saving Capital</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.trading_capital}
+                  value={planDetails?.trading_capital}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
@@ -53,7 +53,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Total ROI</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.total_roi}
+                  value={planDetails?.total_roi}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
@@ -64,7 +64,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Weekly Earnings</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.weekly_earning}
+                  value={planDetails?.weekly_earning}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
@@ -75,7 +75,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Daily Earnings</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.daily_earning}
+                  value={planDetails?.daily_earning}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
@@ -86,7 +86,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Saving Charges</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.trading_fee}
+                  value={planDetails?.trading_fee}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
@@ -97,7 +97,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Payout Balance</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.payout_amount}
+                  value={planDetails?.payout_amount}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
@@ -108,7 +108,7 @@ const LogDetails = ({ show, onCloseClick, planDetails }) => {
               <span>Available To Withdrawal</span>
               <span style={{ float: 'right', color: "#000", fontWeight: "bold"}}>
                 <NumberFormat
-                  value={planDetails.available_to_withdraw}
+                  value={planDetails?.available_to_withdraw}
                   className="foo"
                   displayType={'text'}
                   thousandSeparator={true}
